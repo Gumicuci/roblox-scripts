@@ -32,38 +32,42 @@ local function AUWJTJC_fake_script() -- ImageButton.LocalScript
 	local startPos
 	
 	local function update(input)
-		local delta = input.Position - dragStart
-		guiObject.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	    local delta = input.Position - dragStart
+	    guiObject.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 	end
 	
 	guiObject.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-			dragging = true
-			dragStart = input.Position
-			startPos = guiObject.Position
+	    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+	        dragging = true
+	        dragStart = input.Position
+	        startPos = guiObject.Position
 	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
+	        input.Changed:Connect(function()
+	            if input.UserInputState == Enum.UserInputState.End then
+	                dragging = false
+	            end
+	        end)
+	    end
 	end)
 	
 	guiObject.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
-			dragInput = input
-		end
+	    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
+	        dragInput = input
+	    end
 	end)
 	
 	UserInputService.InputChanged:Connect(function(input)
-		if dragging and input == dragInput then
-			update(input)
-		end
+	    if dragging and input == dragInput then
+	        update(input)
+	    end
 	end)
 	
-	guiObject.TouchTap:Connect(function()
-		game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
+	-- Toggle ScreenGui visibility on touch or mouse click, without affecting drag functionality
+	guiObject.MouseButton1Click:Connect(function()
+	    if not dragging then
+	        game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
+	    end
 	end)
+
 end
 coroutine.wrap(AUWJTJC_fake_script)()
