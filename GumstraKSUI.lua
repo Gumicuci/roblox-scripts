@@ -27,8 +27,9 @@ local UICorner_7 = Instance.new("UICorner")
 
 ScreenGui.Name = "..."
 ScreenGui.Parent = game.CoreGui
+ScreenGui.Enabled = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.DisplayOrder = 25
+ScreenGui.DisplayOrder = 999
 
 CanvasGroup.Name = "CanvasGroup"
 CanvasGroup.Parent = ScreenGui
@@ -215,83 +216,110 @@ UICorner_7.Parent = Frame_3
 
 -- Scripts:
 
-local function UPUG_fake_script() -- getkey.setcheck 
+local function SJFBV_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
-	local wsp = math.random(20, 35)
-	local key = script.Parent.Parent.key.Frame.TextBox
-	local UserInputService = game:GetService("UserInputService")
+	if game.PlaceId ~= 1215581239 then
+		local sgui = game:GetService("StarterGui")
+		local nahdot = {"oh okay.", "alr.", "fair enough-", "fair enough."}
+		local bindable = Instance.new("BindableFunction")
 	
-	_G.bun = ""
-	task.spawn(function()
-		for i = 1, wsp do
-			task.wait(1)
-			_G.bun = i
+		function bindable.OnInvoke(response)
+			if response == "Sure" then
+				game:GetService("TeleportService"):Teleport(1215581239, game:GetService("Players").LocalPlayer)
+			else
+				sgui:SetCore("SendNotification", {
+					Title = nahdot[math.random(1, 4)],
+					Duration = 3,
+				})
+			end
 		end
-		_G.bun = "Done"
-	end)
 	
-	if not getgenv().scriLoaded then
-		getgenv().scriLoaded = true
+		sgui:SetCore("SendNotification", {
+			Title = "Wrong game.",
+			Text = "This script is for Doomspire, would you like to teleport there?",
+			Duration = 10,
+			Callback = bindable,
+			Button1 = "Sure",
+			Button2 = "Nah"
+		})
+	else
+		local wsp = math.random(20, 35)
+		local key = script.Parent.Parent.key.Frame.TextBox
+		local UserInputService = game:GetService("UserInputService")
 	
-		loadstring(game:HttpGet("https://pastebin.com/raw/ZKGpkzu5"))()
-	end
+		_G.bun = ""
+		task.spawn(function()
+			for i = 1, wsp do
+				task.wait(1)
+				_G.bun = i
+			end
+			_G.bun = "Done"
+		end)
 	
+		if not getgenv().scriLoaded then
+			getgenv().scriLoaded = true
 	
-	loadstring(game:HttpGet("https://pastebin.com/raw/JQbB72dE"))()
-	
-	script.Parent["Get Key"].MouseButton1Click:Connect(function()
-		key:CaptureFocus()
-		key.Text = "https://loot-link.com/s?705f5368"
-	end)
-	
-	local message = {"Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD", "bro it literally takes around " .. wsp .. " seconds to do the key.", "Bro thought i wouldn't know xD", "Bro bypassed my key system 💔", "Bro bypassed my key system 😭", "Bro thought i wouldn't know 😪"}
-	
-	local function df(bruh)
-		if type(_G.bun) ~= "string" and _G.bun <= wsp - 1 and _G.kafwe ~= "8" and _G.kafwe == _G.FTPWGTBC then
-			game.Players.LocalPlayer:Kick("Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD")
-			wait(2)
-			game.Players.LocalPlayer:Destroy()
-			wait(5)
-			game:Shutdown()
-		else
-			local tweenService = game:GetService("TweenService")
-			tweenService:Create(script.Parent.Parent.Parent.Parent.CanvasGroup, TweenInfo.new(bruh + 0.1), {
-				Position = UDim2.new(0.5, 0, 1.5, 0),
-			}):Play()
-			
-			wait(bruh + 0.3)
-			script.Parent.Parent.Parent.Parent.Parent["..."]:Destroy()
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
+			loadstring(game:HttpGet("https://pastefy.app/hgQ9hdC9/raw"))()
 		end
-	end
 	
-	key.Focused:Connect(function()
-		UserInputService.InputEnded:Connect(function(input, processed)
-			if input.KeyCode == Enum.KeyCode.Return and not processed then
-				_G.kafwe = key.Text
-				if key.Text == _G.FTPWGTBC then
-					df(math.random(0, 1))
-				elseif key.Text == "8" then
-					df(math.random(0, 1))
+	
+		loadstring(game:HttpGet("https://pastebin.com/raw/JQbB72dE"))()
+	
+		script.Parent["Get Key"].MouseButton1Click:Connect(function()
+			key:CaptureFocus()
+			key.Text = "https://loot-link.com/s?705f5368"
+		end)
+	
+		local message = {"Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD", "bro it literally takes around " .. wsp .. " seconds to do the key.", "Bro thought i wouldn't know xD", "Bro bypassed my key system 💔", "Bro bypassed my key system 😭", "Bro thought i wouldn't know 😪"}
+	
+		local function df(bruh)
+			if type(_G.bun) ~= "string" and _G.bun <= wsp - 1 and _G.kafwe ~= "8" and _G.kafwe == _G.FTPWGTBC then
+				game.Players.LocalPlayer:Kick("Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD")
+				wait(2)
+				game.Players.LocalPlayer:Destroy()
+				wait(5)
+				game:Shutdown()
+			else
+				local tweenService = game:GetService("TweenService")
+				tweenService:Create(script.Parent.Parent.Parent.Parent.CanvasGroup, TweenInfo.new(bruh + 0.1), {
+					Position = UDim2.new(0.5, 0, 1.5, 0),
+				}):Play()
+				
+				wait(bruh + 0.3)
+				script.Parent.Parent.Parent.Parent.Parent["..."]:Destroy()
+				if game.PlaceId == 1215581239 then
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
 				end
 			end
-		end)
-	end)
-	
-	
-	script.Parent["check key"].MouseButton1Click:Connect(function()
-		_G.kafwe = key.Text
-		if key.Text == _G.FTPWGTBC then
-			df(math.random(0, 1))
-		elseif key.Text == "8" then
-			df(math.random(0, 1))
 		end
-	end)
 	
+		key.Focused:Connect(function()
+			UserInputService.InputEnded:Connect(function(input, processed)
+				if input.KeyCode == Enum.KeyCode.Return and not processed then
+					_G.kafwe = key.Text
+					if key.Text == _G.FTPWGTBC then
+						df(math.random(0, 1))
+					elseif key.Text == "8" then
+						df(math.random(0, 1))
+					end
+				end
+			end)
+		end)
+	
+	
+		script.Parent["check key"].MouseButton1Click:Connect(function()
+			_G.kafwe = key.Text
+			if key.Text == _G.FTPWGTBC then
+				df(math.random(0, 1))
+			elseif key.Text == "8" then
+				df(math.random(0, 1))
+			end
+		end)
+	end
 end
-coroutine.wrap(UPUG_fake_script)()
-local function LSFPC_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(SJFBV_fake_script)()
+local function VWHHBG_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
@@ -328,8 +356,8 @@ local function LSFPC_fake_script() -- TextBox.LocalScript
 	end)
 	
 end
-coroutine.wrap(LSFPC_fake_script)()
-local function KBNKJ_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(VWHHBG_fake_script)()
+local function WXTRCW_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
@@ -397,4 +425,4 @@ local function KBNKJ_fake_script() -- CanvasGroup.Load strokes
 	a.Color = Color3.fromRGB(255, 255, 255)
 	
 end
-coroutine.wrap(KBNKJ_fake_script)()
+coroutine.wrap(WXTRCW_fake_script)()
