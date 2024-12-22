@@ -23,10 +23,14 @@ UICorner.Parent = ImageButton
 local function AUWJTJC_fake_script() -- ImageButton.LocalScript 
 	local script = Instance.new('LocalScript', ImageButton)
 
-	local guiObject = script.Parent -- Assuming the script is a child of the GUI element
-	
+	local guiObject = script.Parent
+
 	guiObject.TouchTap:Connect(function()
-		game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
+		for _, v in pairs(game:GetService("CoreGui").ScreenGui:GetChildren()) do
+			if v:FindFirstChild("TextLabel") then
+				v.Visible = not v.Visible
+			end
+		end
 	end)
 end
 coroutine.wrap(AUWJTJC_fake_script)()
