@@ -5,7 +5,7 @@ local UICorner = Instance.new("UICorner")
 --Properties:
 
 freaky.Name = "freaky"
-freaky.Parent = game.Workspace
+freaky.Parent = game.CoreGui
 freaky.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageButton.Parent = freaky
