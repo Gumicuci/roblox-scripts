@@ -244,7 +244,7 @@ Version_2.TextSize = 14.000
 
 -- Scripts:
 
-local function HHCAHQT_fake_script() -- getkey.setcheck 
+local function KLIKD_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
 	if game.PlaceId ~= 1215581239 then
@@ -305,11 +305,11 @@ local function HHCAHQT_fake_script() -- getkey.setcheck
 			else
 				local tweenService = game:GetService("TweenService")
 				tweenService:Create(game:GetService("CoreGui")["..."].CanvasGroup, TweenInfo.new(bruh + 0.1), {
-					Position = UDim2.new(0.5, 0, 1.5, 0),
+					Position = UDim2.new(math.random(0, 10) / math.random(2, 5), 0, 1.3, 0),
 				}):Play()
 
 				wait(bruh + 0.3)
-				script.Parent.Parent.Parent.Parent.Parent["..."]:Destroy()
+				script.Parent.Parent.Parent.Parent.Parent["..."].Enabled = false
 
 				if not getgenv().scriLoaded then
 					getgenv().scriLoaded = true
@@ -347,8 +347,8 @@ local function HHCAHQT_fake_script() -- getkey.setcheck
 		end)
 	end
 end
-coroutine.wrap(HHCAHQT_fake_script)()
-local function LDBTC_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(KLIKD_fake_script)()
+local function TAXDEJU_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
@@ -385,8 +385,8 @@ local function LDBTC_fake_script() -- TextBox.LocalScript
 	end)
 
 end
-coroutine.wrap(LDBTC_fake_script)()
-local function RKLO_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(TAXDEJU_fake_script)()
+local function BVTIM_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
@@ -456,4 +456,4 @@ local function RKLO_fake_script() -- CanvasGroup.Load strokes
 	a.Color = Color3.fromRGB(255, 255, 255)
 
 end
-coroutine.wrap(RKLO_fake_script)()
+coroutine.wrap(BVTIM_fake_script)()
