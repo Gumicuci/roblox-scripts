@@ -65,9 +65,5 @@ local function AUWJTJC_fake_script() -- ImageButton.LocalScript
 	guiObject.TouchTap:Connect(function()
 		game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
 	end)
-	
-	guiObject.MouseButton1Click:Connect(function()
-		game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
-	end)
 end
 coroutine.wrap(AUWJTJC_fake_script)()
