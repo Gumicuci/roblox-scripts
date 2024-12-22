@@ -27,7 +27,6 @@ local UICorner_7 = Instance.new("UICorner")
 
 ScreenGui.Name = "..."
 ScreenGui.Parent = game.CoreGui
-ScreenGui.Enabled = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.DisplayOrder = 999
 
@@ -216,14 +215,14 @@ UICorner_7.Parent = Frame_3
 
 -- Scripts:
 
-local function RVDWOQ_fake_script() -- getkey.setcheck 
+local function FDBNO_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
 	if game.PlaceId ~= 1215581239 then
 		local sgui = game:GetService("StarterGui")
 		local nahdot = {"oh okay.", "alr.", "fair enough-", "fair enough."}
 		local bindable = Instance.new("BindableFunction")
-	
+
 		function bindable.OnInvoke(response)
 			if response == "Sure" then
 				game:GetService("TeleportService"):Teleport(1215581239, game:GetService("Players").LocalPlayer)
@@ -234,7 +233,7 @@ local function RVDWOQ_fake_script() -- getkey.setcheck
 				})
 			end
 		end
-	
+
 		sgui:SetCore("SendNotification", {
 			Title = "Wrong game.",
 			Text = "This script is for Doomspire, would you like to teleport there?",
@@ -247,7 +246,7 @@ local function RVDWOQ_fake_script() -- getkey.setcheck
 		local wsp = math.random(20, 35)
 		local key = script.Parent.Parent.key.Frame.TextBox
 		local UserInputService = game:GetService("UserInputService")
-	
+
 		_G.bun = ""
 		task.spawn(function()
 			for i = 1, wsp do
@@ -256,17 +255,17 @@ local function RVDWOQ_fake_script() -- getkey.setcheck
 			end
 			_G.bun = "Done"
 		end)
-	
-	
+
+
 		loadstring(game:HttpGet("https://pastebin.com/raw/JQbB72dE"))()
-	
+
 		script.Parent["Get Key"].MouseButton1Click:Connect(function()
 			key:CaptureFocus()
 			key.Text = "https://loot-link.com/s?705f5368"
 		end)
-	
+
 		local message = {"Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD", "bro it literally takes around " .. wsp .. " seconds to do the key.", "Bro thought i wouldn't know xD", "Bro bypassed my key system 💔", "Bro bypassed my key system 😭", "Bro thought i wouldn't know 😪"}
-	
+
 		local function df(bruh)
 			if type(_G.bun) ~= "string" and _G.bun <= wsp - 1 and _G.kafwe ~= "8" and _G.kafwe == _G.FTPWGTBC then
 				game.Players.LocalPlayer:Kick("Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD")
@@ -276,25 +275,25 @@ local function RVDWOQ_fake_script() -- getkey.setcheck
 				game:Shutdown()
 			else
 				local tweenService = game:GetService("TweenService")
-				tweenService:Create(script.Parent.Parent.Parent.Parent.CanvasGroup, TweenInfo.new(bruh + 0.1), {
+				tweenService:Create(game:GetService("CoreGui")["..."].CanvasGroup, TweenInfo.new(bruh + 0.1), {
 					Position = UDim2.new(0.5, 0, 1.5, 0),
 				}):Play()
-				
+
 				wait(bruh + 0.3)
 				script.Parent.Parent.Parent.Parent.Parent["..."]:Destroy()
-				
+
 				if not getgenv().scriLoaded then
 					getgenv().scriLoaded = true
-	
+
 					loadstring(game:HttpGet("https://pastefy.app/hgQ9hdC9/raw"))()
 				end
-				
+
 				if game.PlaceId == 1215581239 then
 					loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
 				end
 			end
 		end
-	
+
 		key.Focused:Connect(function()
 			UserInputService.InputEnded:Connect(function(input, processed)
 				if input.KeyCode == Enum.KeyCode.Return and not processed then
@@ -307,8 +306,8 @@ local function RVDWOQ_fake_script() -- getkey.setcheck
 				end
 			end)
 		end)
-	
-	
+
+
 		script.Parent["check key"].MouseButton1Click:Connect(function()
 			_G.kafwe = key.Text
 			if key.Text == _G.FTPWGTBC then
@@ -319,15 +318,15 @@ local function RVDWOQ_fake_script() -- getkey.setcheck
 		end)
 	end
 end
-coroutine.wrap(RVDWOQ_fake_script)()
-local function XEZTK_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(FDBNO_fake_script)()
+local function UQISSA_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
 	local textLabel = script.Parent.TextLabel
-	
+
 	local TweenService = game:GetService("TweenService")
-	
+
 	local function tweenToFocused()
 		TweenService:Create(textLabel, TweenInfo.new(0.2), {
 			Size = UDim2.new(0, 65, 0, 20),
@@ -335,7 +334,7 @@ local function XEZTK_fake_script() -- TextBox.LocalScript
 			TextColor3 = Color3.fromRGB(144, 202, 249)
 		}):Play()
 	end
-	
+
 	local function tweenToUnfocused()
 		TweenService:Create(textLabel, TweenInfo.new(0.2), {
 			Size = UDim2.new(0, 80, 0, 20),
@@ -343,47 +342,47 @@ local function XEZTK_fake_script() -- TextBox.LocalScript
 			TextColor3 = Color3.fromRGB(255, 255, 255)
 		}):Play()
 	end
-	
+
 	textBox.Focused:Connect(function()
 		if textBox.Text == "" then
 			tweenToFocused()
 		end
 	end)
-	
+
 	textBox.FocusLost:Connect(function()
 		if textBox.Text == "" then
 			tweenToUnfocused()
 		end
 	end)
-	
+
 end
-coroutine.wrap(XEZTK_fake_script)()
-local function OVJL_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(UQISSA_fake_script)()
+local function ROUACUI_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
 	UserInputService = game:GetService("UserInputService")
-	
+
 	canvasGroup = script.Parent
 	dragging = false
 	local dragStart, startPos
-	
+
 	function update(input)
 		local delta = input.Position - dragStart
 		local newPosition = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	
+
 		local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 		local goal = {Position = newPosition}
 		local tween = TweenService:Create(canvasGroup, tweenInfo, goal)
 		tween:Play()
 	end
-	
+
 	canvasGroup.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 then
 			dragging = true
 			dragStart = input.Position
 			startPos = canvasGroup.Position
-	
+
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
@@ -391,7 +390,7 @@ local function OVJL_fake_script() -- CanvasGroup.Load strokes
 			end)
 		end
 	end)
-	
+
 	canvasGroup.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement then
 			if dragging then
@@ -399,13 +398,13 @@ local function OVJL_fake_script() -- CanvasGroup.Load strokes
 			end
 		end
 	end)
-	
-	
-	
+
+
+
 	script.Parent.ImageButton.MouseButton1Click:Connect(function()
 		script.Parent.Parent:Destroy()
 	end)
-	
+
 	a = Instance.new("UIStroke", script.Parent.Frame.getkey:WaitForChild("Get Key"))
 	a.Thickness = 1
 	a.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
@@ -424,6 +423,6 @@ local function OVJL_fake_script() -- CanvasGroup.Load strokes
 	a.Thickness = 2
 	a.Transparency = 0.77
 	a.Color = Color3.fromRGB(255, 255, 255)
-	
+
 end
-coroutine.wrap(OVJL_fake_script)()
+coroutine.wrap(ROUACUI_fake_script)()
