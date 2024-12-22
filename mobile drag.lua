@@ -7,6 +7,7 @@ local UICorner = Instance.new("UICorner")
 freaky.Name = "freaky"
 freaky.Parent = game.CoreGui
 freaky.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+freaky.DisplayOrder = 750
 
 ImageButton.Parent = freaky
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
