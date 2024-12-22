@@ -5,7 +5,7 @@ local UICorner = Instance.new("UICorner")
 --Properties:
 
 freaky.Name = "freaky"
-freaky.Parent = game.CoreGui
+freaky.Parent = game.Workspace
 freaky.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageButton.Parent = freaky
@@ -23,51 +23,10 @@ UICorner.Parent = ImageButton
 local function AUWJTJC_fake_script() -- ImageButton.LocalScript 
 	local script = Instance.new('LocalScript', ImageButton)
 
-	local UserInputService = game:GetService("UserInputService")
 	local guiObject = script.Parent -- Assuming the script is a child of the GUI element
 	
-	local dragging = false
-	local dragInput
-	local dragStart
-	local startPos
-	
-	local function update(input)
-	    local delta = input.Position - dragStart
-	    guiObject.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	end
-	
-	guiObject.InputBegan:Connect(function(input)
-	    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-	        dragging = true
-	        dragStart = input.Position
-	        startPos = guiObject.Position
-	
-	        input.Changed:Connect(function()
-	            if input.UserInputState == Enum.UserInputState.End then
-	                dragging = false
-	            end
-	        end)
-	    end
+	guiObject.TouchTap:Connect(function()
+		game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
 	end)
-	
-	guiObject.InputChanged:Connect(function(input)
-	    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
-	        dragInput = input
-	    end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-	    if dragging and input == dragInput then
-	        update(input)
-	    end
-	end)
-	
-	-- Toggle ScreenGui visibility on touch or mouse click, without affecting drag functionality
-	guiObject.MouseButton1Click:Connect(function()
-	    if not dragging then
-	        game:GetService("CoreGui").ScreenGui.Enabled = not game:GetService("CoreGui").ScreenGui.Enabled
-	    end
-	end)
-
 end
 coroutine.wrap(AUWJTJC_fake_script)()
