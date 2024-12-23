@@ -224,11 +224,11 @@ Version.BorderSizePixel = 0
 Version.Position = UDim2.new(0, 0, 1.4666667, 0)
 Version.Size = UDim2.new(0, 35, 0, 16)
 Version.Font = Enum.Font.Unknown
-Version.Text = "Key system broke."
+Version.Text = "  Key system broke."
 Version.TextColor3 = Color3.fromRGB(95, 95, 95)
 Version.TextSize = 10.000
 Version.TextTransparency = 0.600
-Version.TextWrapped = true
+Version.TextXAlignment = Enum.TextXAlignment.Left
 
 Version_2.Name = "Version"
 Version_2.Parent = ScreenGui
@@ -238,13 +238,13 @@ Version_2.BorderSizePixel = 0
 Version_2.Size = UDim2.new(0, 1, 0, 1)
 Version_2.Visible = false
 Version_2.Font = Enum.Font.SourceSans
-Version_2.Text = "V1.11"
+Version_2.Text = "V1.2"
 Version_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Version_2.TextSize = 14.000
 
 -- Scripts:
 
-local function XZORHSI_fake_script() -- getkey.setcheck 
+local function DOCLJX_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
 	if game.PlaceId ~= 1215581239 then
@@ -347,8 +347,8 @@ local function XZORHSI_fake_script() -- getkey.setcheck
 		end)
 	end
 end
-coroutine.wrap(XZORHSI_fake_script)()
-local function WMPVLR_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(DOCLJX_fake_script)()
+local function YMFKHAI_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
@@ -385,8 +385,8 @@ local function WMPVLR_fake_script() -- TextBox.LocalScript
 	end)
 	
 end
-coroutine.wrap(WMPVLR_fake_script)()
-local function AHRXE_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(YMFKHAI_fake_script)()
+local function PTSRIZY_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
@@ -456,4 +456,4 @@ local function AHRXE_fake_script() -- CanvasGroup.Load strokes
 	a.Color = Color3.fromRGB(255, 255, 255)
 	
 end
-coroutine.wrap(AHRXE_fake_script)()
+coroutine.wrap(PTSRIZY_fake_script)()
