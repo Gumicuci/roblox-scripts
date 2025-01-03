@@ -238,13 +238,13 @@ Version_2.BorderSizePixel = 0
 Version_2.Size = UDim2.new(0, 1, 0, 1)
 Version_2.Visible = false
 Version_2.Font = Enum.Font.SourceSans
-Version_2.Text = "V1.2"
+Version_2.Text = "V1.3"
 Version_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Version_2.TextSize = 14.000
 
 -- Scripts:
 
-local function DOCLJX_fake_script() -- getkey.setcheck 
+local function ZNJCIY_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
 	if game.PlaceId ~= 1215581239 then
@@ -272,18 +272,8 @@ local function DOCLJX_fake_script() -- getkey.setcheck
 			Button2 = "Nah"
 		})
 	else
-		local wsp = math.random(20, 35)
 		local key = script.Parent.Parent.key.Frame.TextBox
 		local UserInputService = game:GetService("UserInputService")
-	
-		_G.bun = ""
-		task.spawn(function()
-			for i = 1, wsp do
-				task.wait(1)
-				_G.bun = i
-			end
-			_G.bun = "Done"
-		end)
 	
 	
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/roblox-scripts/refs/heads/main/nhb"))()
@@ -293,33 +283,23 @@ local function DOCLJX_fake_script() -- getkey.setcheck
 			key.Text = "https://loot-link.com/s?705f5368"
 		end)
 	
-		local message = {"Bro bypassed my key system 💔, it literally takes around.. Uhhh lets see... " .. wsp .. " seconds xD", "bro it literally takes around " .. wsp .. " seconds to do the key.", "Bro thought i wouldn't know xD", "Bro bypassed my key system 💔", "Bro bypassed my key system 😭", "Bro thought i wouldn't know 😪"}
-	
 		local function df(bruh)
-			if type(_G.bun) ~= "string" and _G.bun <= wsp - 1 and _G.kafwe ~= "8" and _G.kafwe == _G.FTPWGTBC then
-				game.Players.LocalPlayer:Kick(message[math.random(1, 6)])
-				wait(2)
-				game.Players.LocalPlayer:Destroy()
-				wait(5)
-				game:Shutdown()
-			else
-				local tweenService = game:GetService("TweenService")
-				tweenService:Create(game:GetService("CoreGui")["..."].CanvasGroup, TweenInfo.new(bruh + 0.1), {
+			local tweenService = game:GetService("TweenService")
+			tweenService:Create(game:GetService("CoreGui")["..."].CanvasGroup, TweenInfo.new(bruh + 0.1), {
 					Position = UDim2.new(math.random(0, 10) / math.random(2, 5), 0, 1.3, 0),
-				}):Play()
+			}):Play()
 				
-				wait(bruh + 0.3)
-				script.Parent.Parent.Parent.Parent.Parent["..."].Enabled = false
+			wait(bruh + 0.3)
+			script.Parent.Parent.Parent.Parent.Parent["..."].Enabled = false
 				
-				if not getgenv().scriLoaded then
-					getgenv().scriLoaded = true
-	
-					loadstring(game:HttpGet("https://pastefy.app/hgQ9hdC9/raw"))()
-				end
+			if not getgenv().scriLoaded then
+				getgenv().scriLoaded = true
 				
-				if game.PlaceId == 1215581239 then
-					loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
-				end
+				loadstring(game:HttpGet("https://pastefy.app/hgQ9hdC9/raw"))()
+			end
+				
+			if game.PlaceId == 1215581239 then
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
 			end
 		end
 	
@@ -347,8 +327,8 @@ local function DOCLJX_fake_script() -- getkey.setcheck
 		end)
 	end
 end
-coroutine.wrap(DOCLJX_fake_script)()
-local function YMFKHAI_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(ZNJCIY_fake_script)()
+local function TXGBC_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
@@ -385,8 +365,8 @@ local function YMFKHAI_fake_script() -- TextBox.LocalScript
 	end)
 	
 end
-coroutine.wrap(YMFKHAI_fake_script)()
-local function PTSRIZY_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(TXGBC_fake_script)()
+local function SIYQRMM_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
@@ -456,4 +436,4 @@ local function PTSRIZY_fake_script() -- CanvasGroup.Load strokes
 	a.Color = Color3.fromRGB(255, 255, 255)
 	
 end
-coroutine.wrap(PTSRIZY_fake_script)()
+coroutine.wrap(SIYQRMM_fake_script)()
