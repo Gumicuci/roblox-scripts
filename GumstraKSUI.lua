@@ -238,7 +238,7 @@ Version_2.BorderSizePixel = 0
 Version_2.Size = UDim2.new(0, 1, 0, 1)
 Version_2.Visible = false
 Version_2.Font = Enum.Font.SourceSans
-Version_2.Text = "V1.3"
+Version_2.Text = "V1.31"
 Version_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Version_2.TextSize = 14.000
 
@@ -280,7 +280,7 @@ local function ZNJCIY_fake_script() -- getkey.setcheck
 	
 		script.Parent["Get Key"].MouseButton1Click:Connect(function()
 			key:CaptureFocus()
-			key.Text = "https://loot-link.com/s?705f5368"
+			key.Text = "https://lootdest.org/s?luZLJFqn"
 		end)
 	
 		local function df(bruh)
