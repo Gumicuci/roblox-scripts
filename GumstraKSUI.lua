@@ -280,7 +280,7 @@ local function ZNJCIY_fake_script() -- getkey.setcheck
 	
 		script.Parent["Get Key"].MouseButton1Click:Connect(function()
 			key:CaptureFocus()
-			key.Text = "https://lootdest.org/s?luZLJFqn"
+			key.Text = "https://loot-link.com/s?gN2k0lTc"
 		end)
 	
 		local function df(bruh)
