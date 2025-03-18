@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/72113192018119/refs/heads/main/en%7Cde.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/72113192018119/refs/heads/main/en%7Cde.lua"))() --NEEDS to be here
 local ScreenGui = Instance.new("ScreenGui")
 local CanvasGroup = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -30,7 +30,7 @@ local Version_2 = Instance.new("TextLabel")
 
 ScreenGui.Name = "..."
 ScreenGui.Parent = game.CoreGui
-ScreenGui.Enabled = false
+ScreenGui.Enabled = true
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.DisplayOrder = 999
 
