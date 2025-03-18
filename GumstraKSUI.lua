@@ -147,7 +147,7 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(1, 0, 0, 0)
 TextLabel.Size = UDim2.new(1, 0, 0.5, 0)
 TextLabel.Font = Enum.Font.SourceSansSemibold
-TextLabel.Text = decode("c5El+M>H").. " | Key System"
+TextLabel.Text = decode("lTeG8[<]").. " | Key System"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 34.000
 
