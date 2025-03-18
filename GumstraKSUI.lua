@@ -29,7 +29,7 @@ local Version_2 = Instance.new("TextLabel")
 --Properties:
 
 ScreenGui.Name = "..."
-ScreenGui.Parent = game.Workspace
+ScreenGui.Parent = game.CoreGui
 ScreenGui.Enabled = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.DisplayOrder = 999
