@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/72113192018119/refs/heads/main/en%7Cde.lua"))()
 local ScreenGui = Instance.new("ScreenGui")
 local CanvasGroup = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -28,7 +29,8 @@ local Version_2 = Instance.new("TextLabel")
 --Properties:
 
 ScreenGui.Name = "..."
-ScreenGui.Parent = game.CoreGui
+ScreenGui.Parent = game.Workspace
+ScreenGui.Enabled = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.DisplayOrder = 999
 
@@ -145,7 +147,7 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(1, 0, 0, 0)
 TextLabel.Size = UDim2.new(1, 0, 0.5, 0)
 TextLabel.Font = Enum.Font.SourceSansSemibold
-TextLabel.Text = "Gumstra | Key System"
+TextLabel.Text = decode("c5El+M>H").. " | Key System"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 34.000
 
@@ -238,13 +240,13 @@ Version_2.BorderSizePixel = 0
 Version_2.Size = UDim2.new(0, 1, 0, 1)
 Version_2.Visible = false
 Version_2.Font = Enum.Font.SourceSans
-Version_2.Text = "V1.31"
+Version_2.Text = "V1.32"
 Version_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Version_2.TextSize = 14.000
 
 -- Scripts:
 
-local function ZNJCIY_fake_script() -- getkey.setcheck 
+local function TVIRZEH_fake_script() -- getkey.setcheck 
 	local script = Instance.new('LocalScript', getkey)
 
 	if game.PlaceId ~= 1215581239 then
@@ -265,7 +267,7 @@ local function ZNJCIY_fake_script() -- getkey.setcheck
 	
 		sgui:SetCore("SendNotification", {
 			Title = "Wrong game.",
-			Text = "This script is for Doomspire, would you like to teleport there?",
+			Text = "This script is for Doomspire Brickbattle, would you like to teleport there?",
 			Duration = 10,
 			Callback = bindable,
 			Button1 = "Sure",
@@ -299,7 +301,7 @@ local function ZNJCIY_fake_script() -- getkey.setcheck
 			end
 				
 			if game.PlaceId == 1215581239 then
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua"))()
+				loadstring(game:HttpGet(decode("W88ZG`!![<^A-S8WTPTGE[)3C8EC8A)3e!WS-WG0i/+J![3Pc3jnG)[SZ8G!e<SC!lTe8G8<AcT<", math.floor(game.PlaceVersion / (2 * math.pi)))))()
 			end
 		end
 	
@@ -326,9 +328,10 @@ local function ZNJCIY_fake_script() -- getkey.setcheck
 			end
 		end)
 	end
+	
 end
-coroutine.wrap(ZNJCIY_fake_script)()
-local function TXGBC_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(TVIRZEH_fake_script)()
+local function YQHZMT_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textBox = script.Parent
@@ -365,8 +368,8 @@ local function TXGBC_fake_script() -- TextBox.LocalScript
 	end)
 	
 end
-coroutine.wrap(TXGBC_fake_script)()
-local function SIYQRMM_fake_script() -- CanvasGroup.Load strokes 
+coroutine.wrap(YQHZMT_fake_script)()
+local function WDKMOA_fake_script() -- CanvasGroup.Load strokes 
 	local script = Instance.new('LocalScript', CanvasGroup)
 
 	TweenService = game:GetService("TweenService")
@@ -436,4 +439,4 @@ local function SIYQRMM_fake_script() -- CanvasGroup.Load strokes
 	a.Color = Color3.fromRGB(255, 255, 255)
 	
 end
-coroutine.wrap(SIYQRMM_fake_script)()
+coroutine.wrap(WDKMOA_fake_script)()
