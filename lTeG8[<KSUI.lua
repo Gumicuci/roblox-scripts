@@ -239,7 +239,7 @@ Version_2.BorderSizePixel = 0
 Version_2.Size = UDim2.new(0, 1, 0, 1)
 Version_2.Visible = false
 Version_2.Font = Enum.Font.SourceSans
-Version_2.Text = "V1.32"
+Version_2.Text = "V1.33"
 Version_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Version_2.TextSize = 14.000
 
