@@ -25,6 +25,7 @@ local UICorner_8 = Instance.new("UICorner")
 
 autoclick.Name = "autoclick"
 autoclick.Parent = game.CoreGui
+autoclick.Enabled = false
 autoclick.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 autoclicker.Name = "autoclicker"
