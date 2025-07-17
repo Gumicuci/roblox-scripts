@@ -1,4 +1,7 @@
 -- ts sucks so yeah i'll update it within this month, u can blame me hs lmao
+if getgenv().autoclicka then game.CoreGui.autoclick.Enabled = not game.CoreGui.autoclick.Enabled return end
+getgenv().autoclicka = true
+--
 local autoclick = Instance.new("ScreenGui")
 local autoclicker = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
