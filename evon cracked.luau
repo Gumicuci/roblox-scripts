@@ -11,7 +11,6 @@ local EvonConfiguration = http_service:JSONDecode(game:HttpGet(ConfigURL))
 local found = false
 for _, name in ipairs(names) do
     if name == ClientID then
-        found = true
         break
     end
 end
