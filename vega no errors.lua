@@ -2,7 +2,7 @@
 -- Version: 3.2
 
 -- Instances:
-
+pcall(function()
 local VegaXAndroidUI = {
 	VegaXAndroidUI = Instance.new("ScreenGui"),
 	SettingsWindow = Instance.new("Frame"),
@@ -3046,3 +3046,4 @@ local function AVHC_fake_script() -- VegaXAndroidUI.VegaXAndroidUI.ScrollingFram
 	
 end
 coroutine.wrap(AVHC_fake_script)()
+end)
