@@ -2748,10 +2748,7 @@ local function AXFKKD_fake_script() -- VegaXAndroidUI.VegaXAndroidUI.Loading
 	
 	script.Parent.IntroFrame:Destroy()
 	
-	if tostring(arceus.getversion()) ~= "4.0.8" then
-		print("you have a car")
-		loadstring(game:HttpGet("https://gitlab.com/marsqq/vegax4/-/raw/main/ForceUpdater"))()
-	end
+	
 	
 	local success, result = pcall(function()
 		if KSCanUse == true then
