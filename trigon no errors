@@ -8292,7 +8292,7 @@ task.spawn(function()
 	selectedFrame = nil
 	scriptEditors = {}
 	tabCount = 0
-	
+	pcall(function()
 	function setupFrame(frame, initialString)
 		local scriptEditor = _G.OdeSE.Embed(frame)
 		scriptEditors[frame] = scriptEditor
@@ -8320,7 +8320,8 @@ task.spawn(function()
 	
 		scriptEditor:LoadStringAsync(initialString)
 	end
-	
+	end)
+
 	function setActiveTab(tab, frame)
 		for _, child in ipairs(tabContainer:GetChildren()) do
 			if child:IsA("Frame") and child.Name:find("ScriptFrame") then
