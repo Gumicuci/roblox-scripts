@@ -2700,7 +2700,7 @@ local function AXFKKD_fake_script() -- VegaXAndroidUI.VegaXAndroidUI.Loading
 		script.Parent.VegaXMenuToggleFrame.Visible = true
 		_G.MenuOpen = true
 		script.Parent.SidebarFrame:TweenPosition(UDim2.new(0, 0, 0.5, 0), "Out", "Quint", 1, true)
-		getgenv().arceus = nil
+		
 	end
 	
 	-- Multi-Language Key System Variables
@@ -2790,7 +2790,7 @@ local function AXFKKD_fake_script() -- VegaXAndroidUI.VegaXAndroidUI.Loading
 		end
 	end)
 	
-	local KeyIsValid = false
+	local KeyIsValid = true
 	
 	script.Parent.KeySystem.MainParent.ButtonParent.ApproveKeyB.MouseButton1Click:connect(function()
 		script.Parent.KeySystem.MainParent.SubTitle.FontFace.Weight = Enum.FontWeight.Regular
