@@ -2791,7 +2791,7 @@ local function AXFKKD_fake_script() -- VegaXAndroidUI.VegaXAndroidUI.Loading
 	end)
 	
 	local KeyIsValid = true
-	
+	LoadVegaXSystem()
 	script.Parent.KeySystem.MainParent.ButtonParent.ApproveKeyB.MouseButton1Click:connect(function()
 		script.Parent.KeySystem.MainParent.SubTitle.FontFace.Weight = Enum.FontWeight.Regular
 		
