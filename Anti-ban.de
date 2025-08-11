@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/roblox-scripts/refs/heads/main/Anti-ban/Anti-ban%20Loader.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/roblox-scripts/refs/heads/main/Anti-ban/Anti-ban%20Loader.lua",true))()
