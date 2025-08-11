@@ -1,1 +1,1 @@
-{}
+getgenv().blacklistedhwid = {}
