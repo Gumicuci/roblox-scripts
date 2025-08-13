@@ -1,1 +1,3 @@
-getgenv().blacklistedhwid = {"9747c826-c6af-4000-9550-b6c8ef1d1e2d"}
+getgenv().blacklistedhwid = {
+	["37267ff3-e1a8-4bd4-9f3c-c99327104262"] = 1755090825
+}
