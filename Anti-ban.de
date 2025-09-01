@@ -1,1 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/AntiBan-QuietGame/refs/heads/main/Anti-ban%20Loader.lua",false))()
+setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Gumicuci/AntiBan-QuietGame/refs/heads/main/Anti-ban%20Loader.lua"))()')
+game.StarterGui:SetCore("SendNotification",{Title="Unsupported loadstring",Text="Please use the updated loadstring",Duration=15})
+wait(1/60)
+game.StarterGui:SetCore("SendNotification",{Title="",Text="The updated loadstring has been put into your clipboard, Please use that loadstring.",Duration=15})
