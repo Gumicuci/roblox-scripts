@@ -447,8 +447,9 @@ do
 	local dynamicParent;
 
 	--[[ Setup ]]--
-
-	if gethui then
+	if exechui then
+		dynamicParent = exechui;
+	elseif gethui then
 		dynamicParent = gethui();
 	elseif isRunning then
 		dynamicParent = isStudio and game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui") or cloneref(game:GetService("CoreGui"));
@@ -770,12 +771,6 @@ do
 			description = "Reaper Hub is a free Roblox script hub developed by Reaper. It currently supports 35+ games using a single loadstring.",
 			icon = "rbxassetid://16359517197",
 			content = "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/AyoReaper/Reaper-Hub/main/loader.lua\"))();"
-		},
-		{
-			title = "Gumstra",
-			description = "Gumstra is a script for doomspire brickbattle developed by Gumicuci and lucklyy this version is keyless! ;3",
-			icon = "rbxassetid://99737173338114",
-			content = "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/highskyY8K/roblox-scripts/refs/heads/main/Gumtsta.lua\"))()"
 		}
 	};
 
