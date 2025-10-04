@@ -4544,7 +4544,6 @@ do
 
 	local function createNavbar(gui: ScreenGui): Instance
 
-
 		local bar = instanceUtils:Create("Frame", {
 			BackgroundTransparency = 1,
 			Name = "navbar",
@@ -4555,11 +4554,11 @@ do
 			instanceUtils:Create("TextButton", { -- SPDM Team | Floating Icon
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundColor3 = Color3.fromHex("15151d"), 
-				BackgroundTransparency = .25,
+				BackgroundTransparency = .08,
 				BorderSizePixel = 0,
 				Draggable = true,
 				Name = "floatingIcon",
-				Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.7, 0),
+				Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.7, 0), --0.7
 				Size = UDim2.new(0, 70, 0, 70),
 				Text = "",
 				Visible = false,
@@ -5034,15 +5033,15 @@ do
 						if isSmallIcon then
 							local inset = GuiService.TopbarInset
 							icon.AnchorPoint = Vector2.new(0,0);
-							icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+6)
+							icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+13)
 						end
 					end)
-					if isSmallIcon and icon.Position.Y.Offset ~= inset.Min.Y+6 then
+					if isSmallIcon and icon.Position.Y.Offset ~= inset.Min.Y+13 then
 						icon.AnchorPoint = Vector2.new(0,0);
-						icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+6)
-					else if not isSmallIcon and icon.Position.Y.Offset == inset.Min.Y+6 then
+						icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+13)
+					else if not isSmallIcon and icon.Position.Y.Offset == inset.Min.Y+13 then
 							icon.AnchorPoint = Vector2.new(.5,.5);
-							icon.Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.7, 0)
+							icon.Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.8, 0)
 						end 
 					end
 					if self.state == "Hidden" then
@@ -5107,12 +5106,12 @@ do
 
 
 					local targetTransparency = self.state == "Hidden" and 0.5 or 1
-					if isSmallIcon then targetTransparency = targetTransparency == 0.5 and 0.2 or targetTransparency end
+					if isSmallIcon then targetTransparency = targetTransparency == 0.5 and 0.08 or targetTransparency end
 					if self.bar.floatingIcon.BackgroundTransparency ~= targetTransparency then
-						local targetSize = self.state == "Hidden" and UDim2.new(0, 70, 0, 70) or UDim2.new(0, 0, 0, 0)
+						local targetSize = self.state == "Hidden" and UDim2.new(0, 44, 0, 44) or UDim2.new(0, 0, 0, 0)
 						if isSmallIcon then
-							-- UDim2.new(0, 43, 0, 43)
-							targetSize = self.state == "Hidden" and UDim2.new(0, inset.Height-8, 0, inset.Height-8) or UDim2.new(0, 0, 0, 0)
+							UDim2.new(0, 50, 0, 50)
+							--targetSize = self.state == "Hidden" and UDim2.new(0, inset.Height-8, 0, inset.Height-8) or UDim2.new(0, 0, 0, 0)
 						end
 						local delayTime = self.bar.floatingIcon.BackgroundTransparency <= 0.5 and 0.25 or 0
 
