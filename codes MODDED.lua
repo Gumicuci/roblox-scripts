@@ -813,8 +813,8 @@ do
 	end
 
 	local function loadScriptCache()
-		if isfile and isfile("data/codexScriptCache.json") then
-			local s, r = pcall(httpService.JSONDecode, httpService, readfile("data/codexScriptCache.json"));
+		if isfile and isfile("codexScriptCache.json") then
+			local s, r = pcall(httpService.JSONDecode, httpService, readfile("codexScriptCache.json"));
 			if s and type(r) == "table" then
 				local accumulation = 0;
 				local cache = {};
@@ -958,7 +958,7 @@ do
 
 	local function saveUserSettings()
 		if writefile then
-			writefile("data/codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
+			writefile("codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
 		end
 	end
 
@@ -991,8 +991,8 @@ do
 			makearceusfolder("data");
 		end
 
-		if isarceusfile and isfile("data/codexSettings.json") then
-			local succ, res = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexSettings.json"));
+		if isarceusfile and isfile("codexSettings.json") then
+			local succ, res = pcall(httpService.JSONDecode, httpService, readarceusfile("codexSettings.json"));
 			if succ then
 				tableUtils:DeepOverwrite(settingsCache, res);
 			else
