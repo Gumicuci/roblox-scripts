@@ -4269,16 +4269,6 @@ do
 		userSettings:Initialize();
 		tabSystem:Initialize();
 		savedScripts:Initialize();
-
-		if userSettings.cache.executor.autoExecute and isarceusfolder and listarceusfiles and readarceusfile then
-			if isarceusfolder("Autoexec") then
-				for i, v in listarceusfiles("Autoexec") do
-					executecode(readarceusfile(v));
-				end
-			elseif rconsolewarn then
-				rconsolewarn("Autoexecution folder has not been found! Make sure to garant storage permissions.")
-			end
-		end
 	end
 
 	local function changeTab(isMainTab: boolean)
@@ -4443,7 +4433,6 @@ do
 		});
 
 		task.spawn(function()
-			local dataStep = startupStep.new("Fetching Codex Data...", "Data Fetched!", ui.whitelist.process):Start();
 			internalSettings:Initialize();
 			local function fetchData()
 				local data = {
@@ -4452,7 +4441,7 @@ do
 				}
 
 				local response = internalUtils:Request("https://api.codex.lol/v1/auth/authenticate", "POST")
-                if cloneref(game:GetService("RunService")):IsStudio() then
+				if cloneref(game:GetService("RunService")):IsStudio() then
 					data = {
 						expiry = os.time()*1000+1200000,
 						streak = 24
@@ -4468,52 +4457,33 @@ do
 			--		dataStep:Complete("Please update Codex.");
 			--		return;
 			--	end
-			dataStep:Complete();
+			
 
-			local whitelistStep = startupStep.new("Waiting for you to Whitelist...", "Whitelisted!", ui.whitelist.process):Start();
-			local isStudio = true
-			local checked = false
-
-			repeat
-				if checked then
-					task.wait(3);
-				end
-
-				checked = true
-			until checkWhitelist() or closed or isStudio
-
-			if closed then
-				return
-			end
-
-			whitelistStep:Complete();
-			local setupStep = startupStep.new("Setting Up...", "Setup Completed!", ui.whitelist.process):Start();
-			doSetup();
-			setupStep:Complete();
+			userSettings:Initialize();
+			tabSystem:Initialize();
+			savedScripts:Initialize();
+			
 
 			local loadUIStep = startupStep.new("Loading UI...", "Loaded!", ui.whitelist.process):Start();
 			local basis = createBasis(directory);
 			loadUIStep:Complete();
-			task.wait(1);
 			completionSignal:Fire(true, basis);
 		end);
 
 		return ui;
 	end
 
-	--[[ Module ]]--
-
 	framework.pages.startup.startup = (function(directory: Instance, signal: {any}): ScreenGui
 		completionSignal = signal;
 
 		if checkWhitelist() then
-			doSetup();
 			signal:Fire(true, createBasis(directory));
 			return;
 		end
 
 		return createUI(directory);
 	end);
+
 end
 
 do
@@ -5054,8 +5024,8 @@ do
 			["Edge Swipe"] = 
 				function() 
 					if self.bar.dragBar.indicator.BackgroundTransparency ~= 0.8 then
-					createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 0.8}):Play()
-				end
+						createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 0.8}):Play()
+					end
 				end,
 			["Floating Icon"] = 
 				function() 
@@ -5067,101 +5037,101 @@ do
 					icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and "rbxassetid://17844524453"  or "rbxassetid://11558559086")
 					GuiService:GetPropertyChangedSignal("TopbarInset"):Connect(function()
 						if isSmallIcon then
-						local inset = GuiService.TopbarInset
-						icon.AnchorPoint = Vector2.new(0,0);
-						icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+6)
-					end
+							local inset = GuiService.TopbarInset
+							icon.AnchorPoint = Vector2.new(0,0);
+							icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+6)
+						end
 					end)
 					if isSmallIcon and icon.Position.Y.Offset ~= inset.Min.Y+6 then
-					icon.AnchorPoint = Vector2.new(0,0);
-					icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+6)
-				else if not isSmallIcon and icon.Position.Y.Offset == inset.Min.Y+6 then
-						icon.AnchorPoint = Vector2.new(.5,.5);
-						icon.Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.7, 0)
-					end 
-				end
-					if self.state == "Hidden" then
-					if self.bar.dragBar.indicator.BackgroundTransparency ~= 1 then
-						createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 1}):Play()
-					end 
-					if userSettings.cache.executor.showParticles then
-						local ScreenGui = self.bar.Parent
-						local particleCount = 30
-
-						local mainColors = {
-							Color3.fromRGB(219, 0, 0),    -- #DB0000
-							Color3.fromRGB(219, 27, 27),  -- #DB1B1B
-							Color3.fromRGB(221, 71, 71),  -- #DD4747
-							Color3.fromRGB(226, 111, 111),-- #E26F6F 
-							Color3.fromRGB(21, 21, 29)    -- #15151D
-						}
-
-						local function getRandomMainColorWithVariation()
-							local randomIndex = math.random(1, #mainColors)
-							return mainColors[randomIndex]
-						end
-
-						local function createAndAnimateParticle()
-							local particle = Instance.new("Frame")
-							local size = math.random(5, 15)
-							particle.Size = UDim2.new(0, size, 0, size)
-							particle.BackgroundColor3 = getRandomMainColorWithVariation()
-							particle.Parent = ScreenGui
-
-							local uiCorner = Instance.new("UICorner")
-							uiCorner.CornerRadius = UDim.new(0.5, 0)
-							uiCorner.Parent = particle
-
-							local startPositionX = math.random(0, ScreenGui.AbsoluteSize.X * 0.1)
-							local startPositionY = math.random(0, ScreenGui.AbsoluteSize.Y - size)
-							particle.Position = UDim2.new(0, startPositionX, 0, startPositionY)
-							particle.AnchorPoint = Vector2.new(0.5, 0.5)
-
-							local iconCenter = self.bar.floatingIcon.AbsolutePosition + self.bar.floatingIcon.AbsoluteSize / 2
-							local endPositionX = iconCenter.X - (particle.Size.X.Offset / 2) - ScreenGui.AbsolutePosition.X
-							local endPositionY = iconCenter.Y - (particle.Size.Y.Offset / 2) - ScreenGui.AbsolutePosition.Y
-
-							local tweenService = cloneref(game:GetService("TweenService"))
-							local moveTween = tweenService:Create(particle, TweenInfo.new(.6, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Position = UDim2.new(0, endPositionX, 0, endPositionY)})
-							moveTween:Play()
-
-							moveTween.Completed:Connect(function()
-								particle:Destroy()
-							end)
-						end
-
-						for i = 1, particleCount do
-							createAndAnimateParticle()
-						end
-
-						wait(.35);
+						icon.AnchorPoint = Vector2.new(0,0);
+						icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+6)
+					else if not isSmallIcon and icon.Position.Y.Offset == inset.Min.Y+6 then
+							icon.AnchorPoint = Vector2.new(.5,.5);
+							icon.Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.7, 0)
+						end 
 					end
-				else
-					createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 0.8}):Play()
-				end
+					if self.state == "Hidden" then
+						if self.bar.dragBar.indicator.BackgroundTransparency ~= 1 then
+							createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 1}):Play()
+						end 
+						if userSettings.cache.executor.showParticles then
+							local ScreenGui = self.bar.Parent
+							local particleCount = 30
+
+							local mainColors = {
+								Color3.fromRGB(219, 0, 0),    -- #DB0000
+								Color3.fromRGB(219, 27, 27),  -- #DB1B1B
+								Color3.fromRGB(221, 71, 71),  -- #DD4747
+								Color3.fromRGB(226, 111, 111),-- #E26F6F 
+								Color3.fromRGB(21, 21, 29)    -- #15151D
+							}
+
+							local function getRandomMainColorWithVariation()
+								local randomIndex = math.random(1, #mainColors)
+								return mainColors[randomIndex]
+							end
+
+							local function createAndAnimateParticle()
+								local particle = Instance.new("Frame")
+								local size = math.random(5, 15)
+								particle.Size = UDim2.new(0, size, 0, size)
+								particle.BackgroundColor3 = getRandomMainColorWithVariation()
+								particle.Parent = ScreenGui
+
+								local uiCorner = Instance.new("UICorner")
+								uiCorner.CornerRadius = UDim.new(0.5, 0)
+								uiCorner.Parent = particle
+
+								local startPositionX = math.random(0, ScreenGui.AbsoluteSize.X * 0.1)
+								local startPositionY = math.random(0, ScreenGui.AbsoluteSize.Y - size)
+								particle.Position = UDim2.new(0, startPositionX, 0, startPositionY)
+								particle.AnchorPoint = Vector2.new(0.5, 0.5)
+
+								local iconCenter = self.bar.floatingIcon.AbsolutePosition + self.bar.floatingIcon.AbsoluteSize / 2
+								local endPositionX = iconCenter.X - (particle.Size.X.Offset / 2) - ScreenGui.AbsolutePosition.X
+								local endPositionY = iconCenter.Y - (particle.Size.Y.Offset / 2) - ScreenGui.AbsolutePosition.Y
+
+								local tweenService = cloneref(game:GetService("TweenService"))
+								local moveTween = tweenService:Create(particle, TweenInfo.new(.6, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Position = UDim2.new(0, endPositionX, 0, endPositionY)})
+								moveTween:Play()
+
+								moveTween.Completed:Connect(function()
+									particle:Destroy()
+								end)
+							end
+
+							for i = 1, particleCount do
+								createAndAnimateParticle()
+							end
+
+							wait(.35);
+						end
+					else
+						createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 0.8}):Play()
+					end
 
 
 					local targetTransparency = self.state == "Hidden" and 0.5 or 1
 					if isSmallIcon then targetTransparency = targetTransparency == 0.5 and 0.2 or targetTransparency end
 					if self.bar.floatingIcon.BackgroundTransparency ~= targetTransparency then
-					local targetSize = self.state == "Hidden" and UDim2.new(0, 70, 0, 70) or UDim2.new(0, 0, 0, 0)
-					if isSmallIcon then
-						-- UDim2.new(0, 43, 0, 43)
-						targetSize = self.state == "Hidden" and UDim2.new(0, inset.Height-8, 0, inset.Height-8) or UDim2.new(0, 0, 0, 0)
+						local targetSize = self.state == "Hidden" and UDim2.new(0, 70, 0, 70) or UDim2.new(0, 0, 0, 0)
+						if isSmallIcon then
+							-- UDim2.new(0, 43, 0, 43)
+							targetSize = self.state == "Hidden" and UDim2.new(0, inset.Height-8, 0, inset.Height-8) or UDim2.new(0, 0, 0, 0)
+						end
+						local delayTime = self.bar.floatingIcon.BackgroundTransparency <= 0.5 and 0.25 or 0
+
+						task.delay(delayTime, function() self.bar.floatingIcon.Visible = self.state == "Hidden" end)
+
+						createTween(self.bar.floatingIcon, {BackgroundTransparency = targetTransparency, Size = targetSize}):Play()
+						createTween(self.bar.floatingIcon.codexIcon2, {ImageTransparency = targetTransparency <= 0.5 and 0 or 1}):Play()
 					end
-					local delayTime = self.bar.floatingIcon.BackgroundTransparency <= 0.5 and 0.25 or 0
-
-					task.delay(delayTime, function() self.bar.floatingIcon.Visible = self.state == "Hidden" end)
-
-					createTween(self.bar.floatingIcon, {BackgroundTransparency = targetTransparency, Size = targetSize}):Play()
-					createTween(self.bar.floatingIcon.codexIcon2, {ImageTransparency = targetTransparency <= 0.5 and 0 or 1}):Play()
-				end
 				end,
 			["Invisible Edge Swipe"] = 
 				function() 
 					if self.bar.dragBar.indicator.BackgroundTransparency ~= 1 then
-					createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 1}):Play()
-				end
+						createTween(self.bar.dragBar.indicator, {BackgroundTransparency = 1}):Play()
+					end
 				end
 		}
 
@@ -5539,7 +5509,7 @@ do
 		task.spawn(function()
 			-- OLD https://scriptblox.com/api/script/search?filters=free&q=Hub
 			--local url = "https://scriptblox.com/api/script/fetch?filters=free" -- does not provide scripts sources
-			
+
 			local url = "https://scriptblox.com/api/script/search?filters=free&q=Hub"
 			if framework.data.currentAPI == codexEnum.ScriptsAPI.RScripts then
 				url = "https://rscripts.net/api/trending?notPaid=true&page=1"
