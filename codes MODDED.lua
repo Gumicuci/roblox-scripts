@@ -42,12 +42,12 @@ local setfpscap = setfpscap or unavailable(nil)
 local getfpscap = getfpscap or unavailable(60)
 local getfpsmax = getfpsmax or unavailable(60)
 
-local makearceusfolder = arceus and clonefunction(arceus.makearceusfolder);
-local writearceusfile = arceus and clonefunction(arceus.writearceusfile);
-local listarceusfiles = arceus and clonefunction(arceus.listarceusfiles);
-local isarceusfolder = arceus and clonefunction(arceus.isarceusfolder);
-local readarceusfile = arceus and clonefunction(arceus.readarceusfile);
-local isarceusfile = arceus and clonefunction(arceus.isarceusfile);
+local makearceusfolder = makefolder;
+local writearceusfile = writefile;
+local listarceusfiles = listfiles;
+local isarceusfolder = isfile;
+local readarceusfile = readfile;
+local isarceusfile = isfile;
 local isiosdevice = (arceus and clonefunction(arceus.is_ios)) or function()
 	return false 
 end
@@ -813,8 +813,8 @@ do
 	end
 
 	local function loadScriptCache()
-		if isarceusfile and isarceusfile("data/codexScriptCache.json") then
-			local s, r = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexScriptCache.json"));
+		if isfile and isfile("data/codexScriptCache.json") then
+			local s, r = pcall(httpService.JSONDecode, httpService, readfile("data/codexScriptCache.json"));
 			if s and type(r) == "table" then
 				local accumulation = 0;
 				local cache = {};
@@ -846,13 +846,11 @@ do
 	end
 
 	local function saveScriptCache()
-		if writearceusfile then
-			local cache = tableUtils:DeepCopy(savedScripts.cache);
-			for i, v in cache do
-				v.onAutoExecuteToggled = nil;
-			end
-			writearceusfile("data/codexScriptCache.json", httpService:JSONEncode(cache));
+		local cache = tableUtils:DeepCopy(savedScripts.cache);
+		for i, v in cache do
+			v.onAutoExecuteToggled = nil;
 		end
+		writefile("codexScriptCache.json", httpService:JSONEncode(cache));
 	end
 
 	--[[ Module ]]--
@@ -959,8 +957,8 @@ do
 	--[[ Functions ]]--
 
 	local function saveUserSettings()
-		if writearceusfile then
-			writearceusfile("data/codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
+		if writefile then
+			writefile("data/codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
 		end
 	end
 
@@ -993,7 +991,7 @@ do
 			makearceusfolder("data");
 		end
 
-		if isarceusfile and isarceusfile("data/codexSettings.json") then
+		if isarceusfile and isfile("data/codexSettings.json") then
 			local succ, res = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexSettings.json"));
 			if succ then
 				tableUtils:DeepOverwrite(settingsCache, res);
@@ -1055,7 +1053,7 @@ do
 	end
 
 	local function loadTabCache()
-		if isarceusfile and isfile("codexTabs.json") then
+		if isfile and isfile("codexTabs.json") then
 			local s, r = pcall(httpService.JSONDecode, httpService, readfile("codexTabs.json"));
 			if s and type(r) == "table" then
 				local accumulation = 0;
