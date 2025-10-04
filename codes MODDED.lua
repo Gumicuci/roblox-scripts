@@ -1055,8 +1055,8 @@ do
 	end
 
 	local function loadTabCache()
-		if isarceusfile and isarceusfile("data/codexTabs.json") then
-			local s, r = pcall(httpService.JSONDecode, httpService, readarceusfile("data/codexTabs.json"));
+		if isarceusfile and isfile("codexTabs.json") then
+			local s, r = pcall(httpService.JSONDecode, httpService, readfile("codexTabs.json"));
 			if s and type(r) == "table" then
 				local accumulation = 0;
 				local cache = {};
@@ -1144,9 +1144,7 @@ do
 	end
 
 	function tabSystem:Save()
-		if writearceusfile then
-			writearceusfile("data/codexTabs.json", httpService:JSONEncode(tableUtils:DeepCopy(self.cache)));
-		end
+		writefile("codexTabs.json", httpService:JSONEncode(tableUtils:DeepCopy(self.cache)));
 	end
 
 	framework.data.tabSystem = tabSystem;
@@ -4686,18 +4684,18 @@ do
 		-- SPDM Team | Streak & Expiring Timer
 		local function fetchData()
 			local data = {
-				expiry = 0,
-				streak = 0
+				expiry = (math.random(1200, 12000000)*1000),
+				streak = math.random(0, 365)
 			}
 
-			local response = internalUtils:Request("https://api.codex.lol/v1/auth/authenticate", "POST")
+			local response = false
 			if response then
 				local success, err = pcall(function()
 					data = httpService:JSONDecode(response)
 				end)
 			elseif cloneref(game:GetService("RunService")):IsStudio() then
 				data = {
-					expiry = os.time()*1000+1200000,
+					expiry = os.time()*1000+(math.random(1200, 12000000)*1000),
 					streak = 24
 				}
 			end
