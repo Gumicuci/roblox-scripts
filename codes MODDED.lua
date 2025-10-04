@@ -4281,7 +4281,8 @@ do
 
 	local function createUI(directory: Instance): ScreenGui
 		local closed = false
-
+		
+		--[[
 		ui = instanceUtils:Create("ScreenGui", {
 			IgnoreGuiInset = true,
 			Name = "startup",
@@ -4430,7 +4431,7 @@ do
 					Size = UDim2.new(1, -62, 0, 32)
 				})
 			})
-		});
+		});]]
 
 		task.spawn(function()
 			internalSettings:Initialize();
@@ -4464,9 +4465,7 @@ do
 			savedScripts:Initialize();
 			
 
-			local loadUIStep = startupStep.new("Loading UI...", "Loaded!", ui.whitelist.process):Start();
 			local basis = createBasis(directory);
-			loadUIStep:Complete();
 			completionSignal:Fire(true, basis);
 		end);
 
