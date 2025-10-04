@@ -740,7 +740,7 @@ do
 			title = "Dark Dex V4",
 			description = "A powerful game explorer GUI. Shows every instance of the game and all their properties. Useful for developers.",
 			icon = "rbxassetid://14806198159",
-			content = "local file = \"dexV4.lua\"; local raw = isfile and isfile(file) and readfile(file); raw = raw or game:HttpGetAsync(\"https://raw.githubusercontent.com/loglizzy/dexV4/main/source.lua\"); if isfile then task.spawn(writefile, file, game:HttpGet(url)); end loadstring(raw)();"
+			content = "loadstring(game:HttpGet('https://raw.githubusercontent.com/infyiff/backup/main/dex.lua'))()"
 		},
 		{
 			title = "Unnamed ESP",
@@ -752,7 +752,7 @@ do
 			title = "Hydroxide",
 			description = "General purpose pen-testing tool for games on the Roblox engine",
 			icon = "rbxassetid://14806229032",
-			content = "loadstring(game:HttpGetAsync(\"https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua\"))(); loadstring(game:HttpGetAsync(\"https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/ui/main.lua\"))();"
+			content = [[local owner = "Upbolt" local branch = "revision" local function webImport(file) return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')() end webImport("init") webImport("ui/main")]]
 		},
 		{
 			title = "Infinite Yield",
