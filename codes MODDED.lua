@@ -4681,7 +4681,7 @@ do
 		-- SPDM Team | Streak & Expiring Timer
 		local function fetchData()
 			local data = {
-				expiry = (math.random(1200, 12000000)*1000),
+				expiry = (math.random(1200, 12000000)*10000),
 				streak = math.random(0, 365)
 			}
 
