@@ -4922,7 +4922,7 @@ do
 				wait(.15)
 			end
 
-			navbar:SetState(codexEnum.NavbarState["Full"]) --Partial GUMICUCI
+			navbar:SetState(codexEnum.NavbarState["Partial"])
 		end)
 
 		bar.indent:GetPropertyChangedSignal("Value"):Connect(function()
