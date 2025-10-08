@@ -2973,11 +2973,10 @@ do
 					optionType = "separator"
 				},
 				{
-					title = "Codex icon",
+					title = "Fluxus icon",
 					linkedSetting = "executor.codexIcon",
-					optionType = "dropdown",
-					items = { "Fluxus", "Codex" },
-					value = "Codex",
+					optionType = "toggle",
+					state = false
 				},
 				{
 					optionType = "separator"
@@ -5066,9 +5065,9 @@ do
 					local icon = self.bar.floatingIcon
 					local inset = GuiService.TopbarInset
 					local padding = 10
-					if userSettings.cache.executor.codexIcon == "Codex" then
+					if userSettings.cache.executor.codexIcon == false then
 						icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and "rbxassetid://17844524453"  or "rbxassetid://11558559086")
-					elseif userSettings.cache.executor.codexIcon == "Fluxus" then
+					elseif userSettings.cache.executor.codexIcon == true then
 						writefile("fluxuslogo.png", game:HttpGet("https://iili.io/Kji9jO7.png"))
 						icon.codexIcon2.Image = getcustomasset("fluxuslogo.png")
 					end
