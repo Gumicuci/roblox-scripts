@@ -4922,7 +4922,7 @@ do
 				wait(.15)
 			end
 
-			navbar:SetState(codexEnum.NavbarState["Partial"])
+			navbar:SetState(codexEnum.NavbarState["Full"]) --Partial GUMICUCI
 		end)
 
 		bar.indent:GetPropertyChangedSignal("Value"):Connect(function()
@@ -5081,7 +5081,7 @@ do
 					if isSmallIcon and icon.Position.Y.Offset ~= inset.Min.Y+13 then
 						icon.AnchorPoint = Vector2.new(0,0);
 						icon.Position = UDim2.new(0, inset.Min.X+padding, 0, inset.Min.Y+13)
-					else if not isSmallIcon and icon.Position.Y.Offset == inset.Min.Y+13 then
+					else if not isSmallIcon and icon.Position.Y.Offset == inset.Min.Y+11 then
 							icon.AnchorPoint = Vector2.new(.5,.5);
 							icon.Position =  UDim2.new(0, game.Workspace.CurrentCamera.ViewportSize.X*0.8, 0.8, 0)
 						end 
@@ -5152,7 +5152,7 @@ do
 					if self.bar.floatingIcon.BackgroundTransparency ~= targetTransparency then
 						local targetSize = self.state == "Hidden" and UDim2.new(0, 44, 0, 44) or UDim2.new(0, 0, 0, 0)
 						if isSmallIcon then
-							UDim2.new(0, 50, 0, 50)
+							UDim2.new(0, 51, 0, 51)
 							--targetSize = self.state == "Hidden" and UDim2.new(0, inset.Height-8, 0, inset.Height-8) or UDim2.new(0, 0, 0, 0)
 						end
 						local delayTime = self.bar.floatingIcon.BackgroundTransparency <= 0.5 and 0.25 or 0
