@@ -925,6 +925,7 @@ do
 	local settingsCache = {
 		executor = {
 			openingMode = "Edge Swipe", -- SPDM Team | Floating Icon
+			codexIcon = "Codex",
 			showParticles = true, -- SPDM Team | Show Particles Setting
 			autoExecute = true,
 			autoSaveTabs = false,
@@ -2554,6 +2555,12 @@ do
 					Name = "savedScripts", 
 					Text = "Saved Scripts",
 					TextColor3 = Color3.fromRGB(159, 164, 186)
+				}),
+				textButton({
+					BackgroundColor3 = Color3.fromRGB(58, 58, 74), 
+					Name = "documentation", 
+					Text = "Luau Docs",
+					TextColor3 = Color3.fromRGB(159, 164, 186)
 				})
 			}),
 			instanceUtils:Create("Folder", { 
@@ -2599,6 +2606,26 @@ do
 						Padding = UDim.new(0, 12), 
 						SortOrder = Enum.SortOrder.LayoutOrder
 					})
+				}),
+				instanceUtils:Create("ScrollingFrame", { 
+					AnchorPoint = Vector2.new(0, 1), 
+					AutomaticCanvasSize = Enum.AutomaticSize.Y, 
+					BackgroundTransparency = 1, 
+					BorderSizePixel = 0, 
+					CanvasSize = UDim2.new(0, 0, 0, 0), 
+					Name = "documentation", 
+					Position = UDim2.new(0, 14, 1, 0), 
+					ScrollBarImageColor3 = Color3.fromHex("191923"), 
+					ScrollBarThickness = 4, 
+					Size = UDim2.new(1, -24, 1, -60), 
+					VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar, 
+					Visible = false
+				}, {
+					instanceUtils:Create("UIListLayout", { 
+						Name = "list", 
+						Padding = UDim.new(0, 12), 
+						SortOrder = Enum.SortOrder.LayoutOrder
+					})
 				})
 			})
 		});
@@ -2616,8 +2643,9 @@ do
 		self.base = createUI(directory);
 
 		map[self.base.tabButtons.builtInLibrary] = self.base.tabs.builtInLibrary;
-		map[self.base.tabButtons.savedScripts] =self. base.tabs.savedScripts;
-
+		map[self.base.tabButtons.savedScripts] = self. base.tabs.savedScripts;
+		map[self.base.tabButtons.documentation] = self. base.tabs.documentation;
+		
 		for i, v in framework.data.builtInScripts do
 			builtInScript(v).Parent = self.base.tabs.builtInLibrary;
 		end
@@ -2940,6 +2968,16 @@ do
 					linkedSetting = "executor.showParticles",
 					optionType = "toggle",
 					state = true
+				},
+				{
+					optionType = "separator"
+				},
+				{
+					title = "Codex icon",
+					linkedSetting = "executor.codexIcon",
+					optionType = "dropdown",
+					items = { "Fluxus", "Codex" },
+					value = "Codex",
 				},
 				{
 					optionType = "separator"
@@ -5028,7 +5066,12 @@ do
 					local icon = self.bar.floatingIcon
 					local inset = GuiService.TopbarInset
 					local padding = 10
-					icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and "rbxassetid://17844524453"  or "rbxassetid://11558559086")
+					if userSettings.cache.executor.codexIcon == "Codex" then
+						icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and "rbxassetid://17844524453"  or "rbxassetid://11558559086")
+					elseif userSettings.cache.executor.codexIcon == "Fluxus" then
+						writefile("fluxuslogo.png", game:HttpGet("https://iili.io/Kji9jO7.png"))
+						icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and getcustomasset("fluxuslogo.png"))
+					end
 					GuiService:GetPropertyChangedSignal("TopbarInset"):Connect(function()
 						if isSmallIcon then
 							local inset = GuiService.TopbarInset
