@@ -925,7 +925,7 @@ do
 	local settingsCache = {
 		executor = {
 			openingMode = "Edge Swipe", -- SPDM Team | Floating Icon
-			codexIcon = "Codex",
+			codexIcon = false,
 			showParticles = true, -- SPDM Team | Show Particles Setting
 			autoExecute = true,
 			autoSaveTabs = false,
