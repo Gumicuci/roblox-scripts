@@ -5544,9 +5544,9 @@ do
 
 		task.spawn(function()
 			-- OLD https://scriptblox.com/api/script/search?filters=free&q=Hub
-			--local url = "https://scriptblox.com/api/script/fetch?filters=free" -- does not provide scripts sources
+			local url = "https://scriptblox.com/api/script/fetch?filters=free" -- does not provide scripts sources GUMICUCI
 
-			local url = "https://scriptblox.com/api/script/search?filters=free&q=Hub"
+			--local url = "https://scriptblox.com/api/script/search?filters=free&q=Hub"
 			if framework.data.currentAPI == codexEnum.ScriptsAPI.RScripts then
 				url = "https://rscripts.net/api/trending?notPaid=true&page=1"
 			end
