@@ -755,6 +755,12 @@ do
 			content = [[local owner = "Upbolt" local branch = "revision" local function webImport(file) return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')() end webImport("init") webImport("ui/main")]]
 		},
 		{
+			title = "Simple Spy V3",
+			description = "A remote event and function watcher. Useful for developers.",
+			icon = "rbxassetid://87210644162313",
+			content = "loadstring(game:HttpGet('https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua'))()"
+		},
+		{
 			title = "Infinite Yield",
 			description = "Admin command line script with 300+ commands and 6 years of development",
 			icon = "rbxassetid://14806239733",
@@ -5544,7 +5550,7 @@ do
 
 		task.spawn(function()
 			-- OLD https://scriptblox.com/api/script/search?filters=free&q=Hub
-			local url = "https://scriptblox.com/api/script/fetch?filters=free" -- does not provide scripts sources GUMICUCI
+			local url = "https://scriptblox.com/api/script/fetch" -- does not provide scripts sources GUMICUCI
 
 			--local url = "https://scriptblox.com/api/script/search?filters=free&q=Hub"
 			if framework.data.currentAPI == codexEnum.ScriptsAPI.RScripts then
@@ -6267,6 +6273,8 @@ do
 					if getclipboard then
 						internalUtils:Notify("Clipboard Executed!")
 						internalUtils:Execute(getclipboard());
+					else
+						internalUtils:Notify("Unsupported! :(")
 					end
 				end,
 				Parent = base.buttons
@@ -6310,7 +6318,10 @@ do
 			if self.selected then
 				map[self.selected]:Highlight(false);
 			end
-			map[tab.index]:Highlight(true);
+			
+			if map[tab.index] then
+				map[tab.index]:Highlight(true);
+			end
 
 			self.selected = tab.index;
 			self:SetText(tab.content);
