@@ -757,7 +757,7 @@ do
 		{
 			title = "Simple Spy V3",
 			description = "A remote event and function watcher. Useful for developers.",
-			icon = "rbxassetid://87210644162313",
+			icon = "rbxassetid://104369934678513",
 			content = "loadstring(game:HttpGet('https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua'))()"
 		},
 		{
