@@ -5081,7 +5081,7 @@ do
 						icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and "rbxassetid://17844524453"  or "rbxassetid://11558559086")
 					elseif userSettings.cache.executor.codexIcon == true then
 						writefile("Codex/fluxuslogo.png", game:HttpGet("https://iili.io/Kji9jO7.png"))
-						icon.codexIcon2.Image = getcustomasset("fluxuslogo.png")
+						icon.codexIcon2.Image = getcustomasset("Codex/fluxuslogo.png")
 					end
 					GuiService:GetPropertyChangedSignal("TopbarInset"):Connect(function()
 						if isSmallIcon then
