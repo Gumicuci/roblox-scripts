@@ -20,6 +20,12 @@ local protectfunction = protectfunction or function(...)
 	return ...
 end
 
+local createimg = function(imagebytecode: string)
+	writefile("Codex/image.png", (base64.decode(imagebytecode) or base64decode(imagebytecode) or base64_decode(imagebytecode) or crypt.base64decode(imagebytecode)))
+
+	return getcustomasset("Codex/image.png")
+end
+
 local clonefunction = function(funct: funct)
 	if not funct then
 		return nil
@@ -856,7 +862,7 @@ do
 		for i, v in cache do
 			v.onAutoExecuteToggled = nil;
 		end
-		writefile("codexScriptCache.json", httpService:JSONEncode(cache));
+		writefile("Codex/codexScriptCache.json", httpService:JSONEncode(cache));
 	end
 
 	--[[ Module ]]--
@@ -965,7 +971,7 @@ do
 
 	local function saveUserSettings()
 		if writefile then
-			writefile("codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
+			writefile("Codex/codexSettings.json", httpService:JSONEncode(tableUtils:DeepCopy(settingsCache)));
 		end
 	end
 
@@ -1149,7 +1155,7 @@ do
 	end
 
 	function tabSystem:Save()
-		writefile("codexTabs.json", httpService:JSONEncode(tableUtils:DeepCopy(self.cache)));
+		writefile("Codex/codexTabs.json", httpService:JSONEncode(tableUtils:DeepCopy(self.cache)));
 	end
 
 	framework.data.tabSystem = tabSystem;
@@ -5074,7 +5080,7 @@ do
 					if userSettings.cache.executor.codexIcon == false then
 						icon.codexIcon2.Image = (userSettings.cache.executor.openingMode == "Small Icon" and "rbxassetid://17844524453"  or "rbxassetid://11558559086")
 					elseif userSettings.cache.executor.codexIcon == true then
-						writefile("fluxuslogo.png", game:HttpGet("https://iili.io/Kji9jO7.png"))
+						writefile("Codex/fluxuslogo.png", game:HttpGet("https://iili.io/Kji9jO7.png"))
 						icon.codexIcon2.Image = getcustomasset("fluxuslogo.png")
 					end
 					GuiService:GetPropertyChangedSignal("TopbarInset"):Connect(function()
